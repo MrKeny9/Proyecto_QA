@@ -1,0 +1,31 @@
+describe('Pruebas_Cypress', () => {
+  
+  it('Debería visitar una URL', () => {
+    cy.visit('https://example.com');
+  });
+
+  it('Debería obtener un elemento y hacer clic', () => {
+    cy.get('button').click();
+  });
+
+  it('Debería buscar un elemento con texto y hacer clic', () => {
+    cy.contains('Submit').click();
+  });
+
+  it('Debería escribir texto en un campo de entrada', () => {
+    cy.get('input[name="username"]').type('myUsername');
+  });
+
+  it('Debería enviar un formulario', () => {
+    cy.get('form').submit();
+  });
+
+  it('Debería esperar un tiempo específico', () => {
+    cy.wait(1000); // espera 1 segundo
+  });
+
+  it('Debería verificar la URL actual de la página', () => {
+    cy.url().should('include', '/dashboard');
+  });
+
+});
