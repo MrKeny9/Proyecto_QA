@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 describe('Agregar producto al carrito', () => {
-  it('TC004 | Agregar un producto del catalogo al carrito', () => {
+  it('Agregar un producto del catalogo al carrito', () => {
 
     // Visita la página de demoblaze.com
     cy.visit('https://www.demoblaze.com/');
@@ -11,6 +11,11 @@ describe('Agregar producto al carrito', () => {
     
     // Click al boton "Add to cart"
     cy.get('.col-sm-12 > .btn').click();
+
+    // Espera el mensaje de confirmación
+    cy.on('window:alert', (text) => {
+      expect(text).to.contains('Product added');
+    });
 
     // Ingresar al carrito
     cy.get('#cartur').click();

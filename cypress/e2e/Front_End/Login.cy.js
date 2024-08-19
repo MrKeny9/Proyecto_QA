@@ -1,18 +1,19 @@
 describe('Inicio de sesion', function()
 {
-    beforeEach(() =>
-    {
+    it ('Inicio de sesion ', () => {
+     //Visite URL especificada 
         cy.visit('https://www.demoblaze.com/');
     
         cy.get('#login2').click()
+        //espera de 2 segundos
         cy.wait (2000)
         cy.get('#loginusername')
-        .type('prrodrigue1');
+        .type('Cypressautomation');
         cy.get('#loginpassword')
-        .type('Ande1234',{log:false});
+        //False evita que Cypress registre la contraseña en los logs de la consola para mantenerla oculta.
+        .type('Cypress123',{log:false});
         cy.get('.btn-primary').contains('Log in').click();
-    })
-it ('Test Case 1',function(){
 
+        cy.wait(4000)
 });
 });
